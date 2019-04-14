@@ -31,7 +31,7 @@
     "koa-json": "^2.0.2",
     "koa-onerror": "^1.2.1",
     "koa-views": "^5.2.1",
-    "ejs": "~2.3.3"
+    "ejs": "~2.5.5"
   },
   "devDependencies": {
     "nodemon": "^1.8.1"
