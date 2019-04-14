@@ -1,0 +1,39 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "A personal bog with koa+vue",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/bin/www",
+    "dev": "./node_modules/.bin/nodemon server/bin/www",
+    "prd": "pm2 start server/bin/www",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DaXiong1/Blog.git"
+  },
+  "author": "DaXiong1",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DaXiong1/Blog/issues"
+  },
+  "homepage": "https://github.com/DaXiong1/Blog#readme",
+  "dependencies": {
+    "koa": "^2.7.0",
+    "koa-body": "^4.1.0",
+    "koa-json-error": "^3.1.2",
+    "koa-router": "^7.4.0",
+    "koa-static": "^5.0.0",
+    "debug": "^2.6.3",
+    "koa-bodyparser": "^3.2.0",
+    "koa-convert": "^1.2.0",
+    "koa-json": "^2.0.2",
+    "koa-onerror": "^1.2.1",
+    "koa-views": "^5.2.1",
+    "pug": "^2.0.0-rc.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.8.1"
+  }
+}
