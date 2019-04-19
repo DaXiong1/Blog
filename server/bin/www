@@ -5,6 +5,7 @@
  */
 
 var app = require('../app');
+// DEBUG=demo:* npm run dev  环境变量DEBUG设置为demo:server便可以打印出相应的日志
 var debug = require('debug')('demo:server');
 var http = require('http');
 
@@ -20,6 +21,7 @@ var port = normalizePort(process.env.PORT || '3000');
  */
 
 var server = http.createServer(app.callback());
+// var server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
