@@ -1,0 +1,42 @@
+@charset "utf-8";
+html {
+    font-size: 14px;
+    word-spacing: 1px;
+    color: #555;
+    letter-spacing: .5px;
+    font-family: Futura,-apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+body {
+    margin: 0;
+}
+.layout {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    .navDown {
+        transform: translateZ(0);
+    }
+    .navUp {
+        transform: translate3d(0,-60px,0);
+    }
+    .header {
+        background: #fff;
+        border-bottom: 1px solid #f1f1f1;
+        color: #909090;
+        height: 60px;
+        overflow: hidden;
+        width: 100%;
+        position: fixed;
+        z-index: 2;
+        transition: .3s;    
+        .box {
+            width: 900px;
+            margin: 0 auto;
+        }
+        .header-content {
+            display: flex;
+            height: 59px;
+            justify-content: space-between;
+        }
+    }
+}
