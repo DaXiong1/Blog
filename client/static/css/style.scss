@@ -37,6 +37,70 @@ body {
             display: flex;
             height: 59px;
             justify-content: space-between;
+            nav {
+                height: 59px;
+                line-height: 59px;
+                font-size: 20px;
+                a {
+                    display: inline-block;
+                    height: 59px;
+                    transition: .3s;
+                    padding: 0 20px;
+                    position: relative;
+                    color: #8c8c8c;
+                    text-decoration: none;
+                }
+                .active {
+                    color: #3fb76c;
+                }
+            }
+            .searchBox {
+                display: flex;
+                align-items: center;
+                .search {
+                    height: 30px;
+                    border-bottom: 1px solid #ddd;
+                    display: flex;
+                    overflow: hidden;
+                    padding-left: 5px;
+                    .text {
+                        width: 158px;
+                        -webkit-transform-origin: right center;
+                        transform-origin: right center;
+                        transition: .3s;
+                        input {
+                            width: 100%;
+                            height: 100%;
+                            border: none;
+                            outline: none;
+                            background: transparent;
+                        }
+                    }
+                    .showText {
+                        width: 158px;
+                    }
+                    .hiddenText {
+                        width: 0;
+                        padding-left: 0;
+                    }
+                    .searchIcon {
+                        width: 30px;
+                        height: 30px;
+                        line-height: 30px;
+                        text-align: center;
+                        cursor: pointer;
+                        .iconfont {
+                            font-family: iconfont!important;
+                            font-size: 16px;
+                            -webkit-font-smoothing: antialiased;
+                            font-style: normal;
+                        }
+                        .rightIcon {
+                            color: #3fb76c;
+                        }
+                    }
+                }
+            }
         }
     }
 }

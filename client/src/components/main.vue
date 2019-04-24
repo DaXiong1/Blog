@@ -3,19 +3,19 @@
     <header class="header navDown">
       <section class="box header-content">
         <nav>
-          <a href="/" class="nuxt-link-active">首页</a>
-          <a href="/article" class="nuxt-link-exact-active nuxt-link-active active">文章</a>
+          <a href="/">首页</a>
+          <a href="/article" class="active">文章</a>
           <a href="/project" class="">项目</a>
           <a href="/about" class="">关于</a>
           <a href="/music" class="">音乐</a>
         </nav>
         <div class="searchBox">
-          <div class="search" style="padding-left: 5px;">
-            <div class="text showText">
+          <div class="search" :style="showSearch ? {paddingLeft: '5px'} : {paddingLeft: '0'}">
+            <div class="text" :class="showSearch ? 'showText' : 'hiddenText'">
               <input type="text" placeholder="你心所想...">
             </div>
             <div class="searchIcon">
-              <i class="iconfont rightIcon"></i>
+              <i class="iconfont" @click="toShowSearch" v-if="!showSearch">&#xe603;</i><i class="iconfont rightIcon" @click="tohiddenSearch" v-else>&#xe640;</i>
             </div>
           </div>
         </div>
@@ -29,7 +29,16 @@ export default {
   name: 'main',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: '',
+      showSearch: false
+    }
+  },
+  methods: {
+    toShowSearch: function () {
+      this.showSearch = true
+    },
+    tohiddenSearch: function () {
+      this.showSearch = false
     }
   }
 }
