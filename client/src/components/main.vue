@@ -23,7 +23,7 @@
       </section>
     </header>
     <div id="mailContent" class="mailContent">
-      <div class="articleBox" style="display: none;">
+      <div class="articleBox">
         <main class="box main">
           <section class="article">
             <div class="item">
@@ -90,7 +90,7 @@
           <i class="iconfont">&#xe635;</i>
         </div>
       </div>
-      <section>
+      <section style="display: none;">
         <div class="markdown articleDetailBox">
           <div class="title">
             <h1>这个是标题哦</h1>
