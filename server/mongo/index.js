@@ -3,7 +3,7 @@
 import glob from 'glob'
 import mongoose from 'mongoose'
 // import mongoosePaginate from 'mongoose-paginate'
-import { path } from 'path'
+import path from 'path'
 import config from '../config'
 
 // mongoose设置
@@ -14,16 +14,12 @@ mongoose.Promise = global.Promise
 mongoose.set('debug', debuger) // 开发模式
 
 // 数据模型引入
-glob.sync(path(__dirname, '../models/*.js')).forEach(res => {
-  console.log(res)
-})
+glob.sync(path.resolve(__dirname, '../models/*.js')).forEach(require)
 
 // 数据库
 export default function () {
-  // 连接数据库
   mongoose.connect(url)
 
-  // 连接错误
   mongoose.connection.on('error', error => {
     console.log('数据库连接失败!', error)
   })

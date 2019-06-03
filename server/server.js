@@ -1,5 +1,5 @@
 import config from './config'
-import mongoConnect from './mongodb'
+import mongoConnect from './mongo'
 const Koa = require('koa')
 // import { path } from 'path'
 // const redis = require('./redis');
