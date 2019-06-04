@@ -1,9 +1,9 @@
 import config from './config'
 import mongoConnect from './mongo'
-const Koa = require('koa')
 // import { path } from 'path'
 // const redis = require('./redis');
-// import middlewares from './middlewares'
+import middlewares from './middlewares'
+const Koa = require('koa')
 // import Route from './decorator/router'
 
 const app = new Koa()
@@ -11,14 +11,14 @@ const app = new Koa()
 mongoConnect()
 // redis.connect();
 
-// 使用各种中间件
-// middlewares(app)
+// 引入中间件
+middlewares(app)
 
 // const router = new Route(app, path(__dirname, './routers'))
 // 初始化路由
 // router.init()
 
-// start server
+// 启动
 app.listen(config.APP.PORT, () => {
-  console.log(`node-Koa Run！port at ${config.APP.PORT}`)
+  console.log(`Koa Run！port at ${config.APP.PORT}`)
 })
