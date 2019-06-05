@@ -14,11 +14,8 @@ const articleOverviewSchema = new mongoose.Schema({
   // 描述
   description: { type: String, required: true },
 
-  // 文章内容,关联article_detail表
-  content_detail: { type: mongoose.Schema.Types.ObjectId, ref: 'ArticleDetail' },
-
   // 文章公开状态（true：公开，false：私密）
-  isPublic: { type: Boolean, default: true },
+  is_public: { type: Boolean, default: true },
 
   // 文章状态（1：已发布，2：草稿）
   state: { type: Number, default: 1 },
