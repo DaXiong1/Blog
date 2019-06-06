@@ -1,8 +1,13 @@
 import {resError, resSuccess} from '../utils/responseHandler'
-import { putContent } from '../controllers/article_detail'
+import { putContent, getByArticleId } from '../controllers/article_detail'
+import { controller, put, del, post, get, required } from '../decorator'
+import config from '../config'
 
+@controller(`${config.APP.ROOT_PATH}/article_detail`)
 export class articleDetailController {
   // 添加文章内容
+  @put('add')
+  @required({body: ['content']})
   async addContent (ctx) {
     const opts = ctx.request.body
     try {
@@ -10,6 +15,18 @@ export class articleDetailController {
       resSuccess({ctx, msg: '添加文章内容成功'})
     } catch (err) {
       resError({ctx, msg: '添加文章内容失败', err})
+    }
+  }
+
+  // 根据article_id获取文章内容
+  @get('get/:article_id') // 动态路由
+  async getContentByArticleId (ctx) {
+    const { article_id } = ctx.params
+    try {
+      const result = await getByArticleId(article_id)
+      resSuccess({ctx, msg: '添加文章内容成功', result})
+    } catch (err) {
+      resError({ctx, msg: '查询文章内容失败', err})
     }
   }
 }
