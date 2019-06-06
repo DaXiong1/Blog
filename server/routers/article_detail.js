@@ -1,5 +1,5 @@
 import {resError, resSuccess} from '../utils/responseHandler'
-import { putContent, getByArticleId, updateByArticleId, delByArticleId } from '../controllers/article_detail'
+import { putContent, getContentByArticleId, updateContentByArticleId, delContentByArticleId } from '../controllers/article_detail'
 import { controller, put, del, post, get, required } from '../decorator'
 import config from '../config'
 
@@ -23,10 +23,10 @@ export class articleDetailController {
   async getContentByArticleId (ctx) {
     const { article_id } = ctx.params
     try {
-      const result = await getByArticleId(article_id)
-      resSuccess({ctx, msg: '添加文章内容成功', result})
+      const result = await getContentByArticleId(article_id)
+      resSuccess({ctx, msg: '获取文章内容成功', result})
     } catch (err) {
-      resError({ctx, msg: '查询文章内容失败', err})
+      resError({ctx, msg: '获取文章内容失败', err})
     }
   }
 
@@ -37,7 +37,7 @@ export class articleDetailController {
     const { article_id } = ctx.params
     const opts = ctx.request.body
     try {
-      await updateByArticleId(article_id, opts)
+      await updateContentByArticleId(article_id, opts)
       resSuccess({ctx, msg: '修改文章内容成功'})
     } catch (err) {
       resError({ctx, msg: '修改文章内容失败', err})
@@ -49,7 +49,7 @@ export class articleDetailController {
   async delContentByArticleId (ctx) {
     const { article_id } = ctx.params
     try {
-      await delByArticleId(article_id)
+      await delContentByArticleId(article_id)
       resSuccess({ctx, msg: '删除文章内容成功'})
     } catch (err) {
       resError({ctx, msg: '删除文章内容失败', err})

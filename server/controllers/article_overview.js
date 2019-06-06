@@ -10,10 +10,28 @@ export const putArticle = async (opts) => {
 }
 
 // 获取文章列表
-export const getAllArticles = async (opts) => {
+export const getAllArticles = async () => {
   let article = null
-  if (opts) {
-    article = await ArticleOverview(opts).find()
-  }
+  article = await ArticleOverview.find()
   return article
+}
+
+// 修改文章
+export const updateArticleById = async (id, opts) => {
+  const res = await ArticleOverview.findByIdAndUpdate(id, {$set: {title: opts.title, description: opts.description}})
+  return res
+}
+
+// 根据id获取文章
+export const queryArticleById = async (id) => {
+  const doc = await ArticleOverview.findById(id)
+  doc.views++
+  const res = doc.save()
+  return res
+}
+
+// 删除文章
+export const delArticleById = async (id) => {
+  const res = await ArticleOverview.findByIdAndRemove(id)
+  return res
 }

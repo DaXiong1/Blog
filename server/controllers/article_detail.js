@@ -1,4 +1,6 @@
 import ArticleDetail from '../models/article_detail'
+const mongoose = require('mongoose')
+const changeStrToObjId = (str) => { return mongoose.Types.ObjectId(str) }
 
 // 新建文章内容
 export const putContent = async (opts) => {
@@ -10,19 +12,19 @@ export const putContent = async (opts) => {
 }
 
 // 根据article_id获取文章内容
-export const getByArticleId = async (article_id) => {
-  const res = await ArticleDetail.find({'article_id': article_id})
+export const getContentByArticleId = async (article_id) => {
+  const res = await ArticleDetail.find({'article_id': changeStrToObjId(article_id)})
   return res
 }
 
 // 根据article_id修改文章内容
-export const updateByArticleId = async (article_id, opts) => {
-  const res = await ArticleDetail.findOneAndUpdate({'article_id': article_id}, {$set: {content: opts.content}})
+export const updateContentByArticleId = async (article_id, opts) => {
+  const res = await ArticleDetail.findOneAndUpdate({'article_id': changeStrToObjId(article_id)}, {$set: {content: opts.content}})
   return res
 }
 
 // 根据article_id删除文章内容
-export const delByArticleId = async (article_id, opts) => {
-  const res = await ArticleDetail.findOneAndRemove({'article_id': article_id})
+export const delContentByArticleId = async (article_id, opts) => {
+  const res = await ArticleDetail.findOneAndRemove({'article_id': changeStrToObjId(article_id)})
   return res
 }
