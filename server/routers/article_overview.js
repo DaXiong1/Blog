@@ -40,11 +40,11 @@ export class articleOverviewController {
   async getArticleById (ctx) {
     try {
       const {id} = ctx.params
-      let res = await queryArticleById(id)
+      let res = (await queryArticleById(id)).toObject() // 查询结果要转化为Object才能修改
       const res1 = await getContentByArticleId(id)
       const content = res1 && res1.length > 0 && res1[0] && res1[0].content
-      //   res.content = content
-      resSuccess({ ctx, msg: '获取文章成功', result: Object.assign({content}, res) })
+      res.content = content
+      resSuccess({ ctx, msg: '获取文章成功', result: res })
     } catch (err) {
       resError({ctx, msg: '获取文章失败', err})
     }
@@ -55,7 +55,7 @@ export class articleOverviewController {
   @required({body: ['title', 'description', 'content']})
   async updateArticle (ctx) {
     const opts = ctx.request.body
-    const id = ctx.params
+    const {id} = ctx.params
     try {
       await updateArticleById(id, opts)
       await updateContentByArticleId(id, opts)
@@ -68,7 +68,7 @@ export class articleOverviewController {
   // 删除文章
   @del('del/:id')
   async delArticle (ctx) {
-    const id = ctx.params
+    const {id} = ctx.params
     try {
       await delArticleById(id)
       await delContentByArticleId(id)
