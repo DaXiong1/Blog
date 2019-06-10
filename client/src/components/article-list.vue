@@ -3,50 +3,29 @@
     <div class="articleBox">
       <main class="box main">
         <section class="article">
-          <div class="item">
+          <div class="item" v-for="(item,index) in articleList" :key="index" @click="getArticleDetail(item._id)">
             <a class="article-title">
-              <h2>哈哈哈，这是标题</h2>
+              <h2>{{item.title}}</h2>
             </a>
-            <p class="article-desc">啦啦啦啦啦了，这是摘要</p>
+            <p class="article-desc">{{item.description}}</p>
             <div class="article-info">
-              <span class="time">2019.05.18</span>
+              <span class="time">{{formatDate(item.update_at)}}</span>
               <i class="iconfont">&#xe600;</i>
               <span class="time">
-                <strong>1</strong>次阅读
+                <strong>{{item.views}}</strong>次阅读
+              </span>
+              <!-- <i class="iconfont">&#xe600;</i>
+              <span class="time">
+                <strong>{{item.comments}}</strong>条评论
               </span>
               <i class="iconfont">&#xe600;</i>
               <span class="time">
-                <strong>1</strong>条评论
-              </span>
-              <i class="iconfont">&#xe600;</i>
-              <span class="time">
-                <strong>1</strong>人喜欢
-              </span>
-            </div>
-          </div>
-          <div class="item">
-            <a class="article-title">
-              <h2>哈哈哈，这是标题</h2>
-            </a>
-            <p class="article-desc">啦啦啦啦啦了，这是摘要</p>
-            <div class="article-info">
-              <span class="time">2019.05.18</span>
-              <i class="iconfont">&#xe600;</i>
-              <span class="time">
-                <strong>1</strong>次阅读
-              </span>
-              <i class="iconfont">&#xe600;</i>
-              <span class="time">
-                <strong>1</strong>条评论
-              </span>
-              <i class="iconfont">&#xe600;</i>
-              <span class="time">
-                <strong>1</strong>人喜欢
-              </span>
+                <strong>{{item.likes}}</strong>人喜欢
+              </span> -->
             </div>
           </div>
         </section>
-        <section class="sideLabel">
+        <!-- <section class="sideLabel">
           <div class="fixedRight">
             <div class="labels">
               <div class="title">标签</div>
@@ -59,13 +38,50 @@
               </div>
             </div>
           </div>
-        </section>
+        </section> -->
       </main>
       <div class="sideIcon">
-        <i class="iconfont">&#xe654;</i>
-        <i class="iconfont">&#xe638;</i>
         <i class="iconfont">&#xe635;</i>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+import { getAll } from '../api'
+
+export default {
+  name: 'article-list',
+  data () {
+    return {
+      articleList: []
+    }
+  },
+  created () {
+    const loading = this.$loading()
+    getAll().then(data => {
+      if (data.code === 0) {
+        this.articleList = data.result || []
+      } else {
+        this.alertErrMsg(data.msg)
+      }
+      loading.close()
+    }).catch(err => {
+      console.error(err)
+      this.alertErrMsg(err)
+      loading.close()
+    })
+  },
+  methods: {
+    toShowSearch: function () {
+      this.showSearch = true
+    },
+    tohiddenSearch: function () {
+      this.showSearch = false
+    },
+    getArticleDetail: function (id) {
+      id && this.$emit('showArticleDetail', {article_id: id})
+    }
+  }
+}
+</script>

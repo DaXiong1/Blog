@@ -3,9 +3,9 @@
     <section>
       <div class="markdown articleDetailBox">
         <div class="title">
-          <h1>这个是标题哦</h1>
+          <h1>{{title}}</h1>
         </div>
-        <div>cnncibfcbficb</div>
+        <div>{{content}}</div>
       </div>
       <div class="info articleDetailBox">
         <p>本文于&nbsp;2019/05/18 下午&nbsp;发布，当前已被围观&nbsp;1100&nbsp;次</p>
@@ -32,3 +32,38 @@
     </section>
   </div>
 </template>
+
+<script>
+import { getArticleById } from '../api'
+
+export default {
+  name: 'article-detail',
+  props: ['article_id'],
+  data () {
+    return {
+      title: '',
+      content: ''
+    }
+  },
+  created () {
+  },
+  mounted () {
+    const loading = this.$loading()
+    this.article_id && getArticleById(this.article_id).then(data => {
+      if (data.code === 0 && data.result) {
+        this.title = data.result.title
+        this.content = data.result.content
+      } else {
+        this.alertErrMsg(data.msg)
+      }
+      loading.close()
+    }).catch(err => {
+      console.error(err)
+      this.alertErrMsg(err)
+      loading.close()
+    })
+  },
+  methods: {
+  }
+}
+</script>

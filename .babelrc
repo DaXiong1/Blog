@@ -2,5 +2,15 @@
   "presets": [
     "stage-3", ["latest-node", { "target": "current" }]
   ],
-  "plugins": ["transform-decorators-legacy", "transform-runtime"]
+  "plugins": [
+    "transform-decorators-legacy", 
+    "transform-runtime",
+    [
+      "component",
+      {
+        "libraryName": "element-ui",
+        "styleLibraryName": "theme-chalk"
+      }
+    ]
+  ]
 }

@@ -3,11 +3,8 @@
     <header class="header navDown">
       <section class="box header-content">
         <nav>
-          <a href="/">首页</a>
-          <a href="/article-detail" class="active">文章</a>
-          <a href="/project" class>项目</a>
-          <a href="/about" class>关于</a>
-          <a href="/music" class>音乐</a>
+          <a href="javascript:void(0)" class="active">文章</a>
+          <a href="javascript:void(0)">关于</a>
         </nav>
         <div class="searchBox">
           <div class="search" :style="showSearch ? {paddingLeft: '5px'} : {paddingLeft: '0'}">
@@ -22,8 +19,7 @@
         </div>
       </section>
     </header>
-    <div id="mainContent" class="mainContent" :is="curComp">
-    </div>
+    <div id="mainContent" class="mainContent" :is="curComp" :article_id="articleId" @showArticleDetail="getArticleId"></div>
     <footer class="layoutFooter footerFixed">© 2019 - 大熊弋的博客</footer>
   </div>
 </template>
@@ -37,7 +33,8 @@ export default {
     return {
       msg: '',
       showSearch: false,
-      curComp: 'ArticleList'
+      curComp: 'ArticleList',
+      articleId: ''
     }
   },
   methods: {
@@ -46,6 +43,12 @@ export default {
     },
     tohiddenSearch: function () {
       this.showSearch = false
+    },
+    getArticleId: function (param) {
+      if (param && param.article_id) {
+        this.curComp = 'ArticleDetail'
+        this.articleId = param.article_id
+      }
     }
   },
   components: {
