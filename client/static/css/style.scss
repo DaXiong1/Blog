@@ -271,21 +271,21 @@ body {
             }
         }
     }
-    .layoutFooter {
-        height: 50px;
-        background: #fff;
-        border-top: 1px solid #f1f1f1;
-        text-align: center;
-        line-height: 50px;
-        font-size: 12px;
-        color: #666;
-        width: 100%;
-    }
-    .footerFixed {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-    }
+}
+.layoutFooter {
+    height: 50px;
+    background: #fff;
+    border-top: 1px solid #f1f1f1;
+    text-align: center;
+    line-height: 50px;
+    font-size: 12px;
+    color: #666;
+    width: 100%;
+}
+.footerFixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
 }
 .iconfont {
     font-family: iconfont!important;
