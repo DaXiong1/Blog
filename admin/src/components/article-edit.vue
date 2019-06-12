@@ -2,7 +2,7 @@
     <div class="article_edit">
         <el-input v-model="input_title" placeholder="请输入标题..." maxlength="50" show-word-limit></el-input>
         <el-input v-model="input_desc" placeholder="请输入描述..." maxlength="100" type="textarea" show-word-limit></el-input>
-        <mavon-editor v-model="mdcontent" ref=md :ishljs="true" :boxShadow="false" style="min-height: 600px;" @change="changeMavon" />
+        <mavon-editor v-model="mdcontent" ref=md :ishljs="true" :boxShadow="false" style="min-height: 600px;height: 600px;" @change="changeMavon" />
         <el-button type="primary" style="margin-top: 20px;position: absolute;right: 35px;" @click="save">保 存</el-button>
     </div>
 </template>

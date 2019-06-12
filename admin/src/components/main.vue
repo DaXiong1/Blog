@@ -4,18 +4,24 @@
       <div class="layout_sider">
         <div class="layout_sider_child">
           <div class="logo"><img src="../../static/images/logo.jpeg" alt=""></div>
-          <ul class="menu menu_light menu_root menu_inline">
-            <li class="menu_submenu menu_submenu_inline menu_submenu_open menu_submenu_selected">
-              <div class="menu_submenu_title">
-                <span><i class="anticon anticon_book iconfont">&#xe604;</i>文章管理</span>
-                <i class="menu_submenu_arrow"></i>
-              </div>
-              <ul class="menu_sub">
-                <li class="menu_item menu_item_selected">文章列表</li>
-                <li class="menu_item">添加文章</li>
-              </ul>
-            </li>
-          </ul>
+          <el-menu
+            default-active="articles"
+            class="el-menu-vertical-demo"
+            @open="handleOpen"
+            @close="handleClose"
+            @select="handleSelect">
+            <el-submenu index="articleManage">
+              <template slot="title">
+                <i class="el-icon-document"></i>
+                <span>文章管理</span>
+              </template>
+              <!-- <el-menu-item-group> -->
+                <!-- <template slot="title">分组一</template> -->
+                <el-menu-item index="articles">文章列表</el-menu-item>
+                <el-menu-item index="editArticle">添加文章</el-menu-item>
+              <!-- </el-menu-item-group> -->
+            </el-submenu>
+          </el-menu>
         </div>
       </div>
       <div class="layout">
@@ -35,6 +41,11 @@ export default {
     }
   },
   methods: {
+    handleOpen () {},
+    handleClose () {},
+    handleSelect (index) {
+      this.$router.push(index)
+    }
   }
 }
 </script>
