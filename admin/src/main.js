@@ -3,9 +3,11 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import { Alert, Loading, MessageBox, Input, Button } from 'element-ui' // 引入element-ui
+import { Alert, Message, Loading, MessageBox, Input, Button } from 'element-ui' // 引入element-ui
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
+import format_date from './mixins/format_date'
+import message from './mixins/message'
 
 Vue.config.productionTip = false
 
@@ -18,6 +20,10 @@ Vue.use(Button)
 Vue.prototype.$loading = Loading.service
 Vue.prototype.$msgbox = MessageBox
 Vue.prototype.$alert = MessageBox.alert
+Vue.prototype.$message = Message
+
+Vue.mixin(format_date)
+Vue.mixin(message)
 
 /* eslint-disable no-new */
 new Vue({

@@ -28,55 +28,25 @@
                 </tr>
               </thead>
               <tbody class="table_tbody">
-                <tr class="table_row">
+                <tr class="table_row" v-for="(item,index) in articleList" :key="index">
                   <td>
                     <span class="table_row_indent"></span>
-                    <a href="javascript:void(0)">hcbibcbcifncinfocfd</a>
+                    <a href="javascript:void(0)">{{item.title}}</a>
                   </td>
                   <td>
-                    <span>2019-06-01</span>
+                    <span>{{formatDate(item.create_at, '-')}}</span>
                   </td>
                   <td>
                     <span>
-                      <i style="padding-right: 15px;">HTML</i>
-                      <i style="padding-right: 15px;">JavaScript</i>
+                      <i style="padding-right: 15px;">xxx</i>
+                      <!-- <i style="padding-right: 15px;">JavaScript</i> -->
                     </span>
                   </td>
                   <td>
                     <span>
-                      <a
-                        href="https://blog.naice.me/article/5c99d6ee12455e43083aabc6"
-                        target="_brank"
-                      >查看</a>
+                      <a href="javascript:void(0)" target="_brank">查看</a>
                       <div class="divider divider_vertical"></div>
-                      <a href="#/edite/5c99d6ee12455e43083aabc6">修改</a>
-                      <div class="divider divider_vertical"></div>
-                      <a href="javascript:void(0)">删除</a>
-                    </span>
-                  </td>
-                </tr>
-                <tr class="table_row">
-                  <td>
-                    <span class="table_row_indent"></span>
-                    <a href="javascript:void(0)">hcbibcbcifncinfocfd</a>
-                  </td>
-                  <td>
-                    <span>2019-06-01</span>
-                  </td>
-                  <td>
-                    <span>
-                      <i style="padding-right: 15px;">HTML</i>
-                      <i style="padding-right: 15px;">JavaScript</i>
-                    </span>
-                  </td>
-                  <td>
-                    <span>
-                      <a
-                        href="https://blog.naice.me/article/5c99d6ee12455e43083aabc6"
-                        target="_brank"
-                      >查看</a>
-                      <div class="divider divider_vertical"></div>
-                      <a href="#/edite/5c99d6ee12455e43083aabc6">修改</a>
+                      <a href="javascript:void(0)" @click="updateArticle(item._id)">修改</a>
                       <div class="divider divider_vertical"></div>
                       <a href="javascript:void(0)">删除</a>
                     </span>
@@ -92,13 +62,35 @@
 </template>
 
 <script>
+import { getAll } from '../api';
+
 export default {
-//   name: 'article-manage',
   data () {
     return {
+      articleList: []
     }
   },
+  created () {
+    const loading = this.$loading();
+    getAll()
+      .then(data => {
+        if (data.code === 0) {
+          this.articleList = data.result || [];
+        } else {
+          this.alertErrMsg(data.msg);
+        }
+        loading.close();
+      })
+      .catch(err => {
+        console.error(err);
+        this.alertErrMsg(err);
+        loading.close();
+      });
+  },
   methods: {
+    updateArticle (_id) {
+      _id && this.$router.push(`editArticle?_id=${_id}`)
+    }
   }
 }
 </script>
