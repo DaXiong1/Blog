@@ -28,6 +28,8 @@ module.exports = {
     // 允许非驼峰写法
     'camelcase': ['off', { properties: 'never' }],
     // 允许分号
-    'semi': 'off'
+    'semi': 'off',
+    // 缩进处理
+    'indent': 0
   }
 }
