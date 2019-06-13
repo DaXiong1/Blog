@@ -4,6 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import { Alert, Loading, MessageBox } from 'element-ui' // 引入element-ui
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
 import format_date from './mixins/format_date'
 import message from './mixins/message'
 
@@ -11,6 +13,7 @@ Vue.config.productionTip = false
 
 Vue.use(Alert)
 Vue.use(Loading.directive)
+Vue.use(mavonEditor)
 
 Vue.prototype.$loading = Loading.service
 Vue.prototype.$msgbox = MessageBox

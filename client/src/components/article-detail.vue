@@ -7,7 +7,8 @@
           <div class="title">
             <h1>{{title}}</h1>
           </div>
-          <div>{{content}}</div>
+          <!-- <div>{{content}}</div> -->
+          <mavon-editor :value="content" class="md" :subfield="false" :defaultOpen="defaultOpen" :editable="false" :toolbarsFlag="false" :ishljs="true" :scrollStyle="false" :boxShadow="false" />
         </div>
         <div class="info articleDetailBox">
           <p>本文于&nbsp;2019/05/18 下午&nbsp;发布，当前已被围观&nbsp;1100&nbsp;次</p>
@@ -45,7 +46,8 @@ export default {
   data () {
     return {
       title: '',
-      content: ''
+      content: '',
+      defaultOpen: 'preview'
     };
   },
   created () {},
@@ -77,3 +79,17 @@ export default {
   }
 };
 </script>
+
+<style>
+/* markdown样式 */
+.md {
+  z-index: auto!important;
+}
+.v-note-panel {
+    border: none!important;
+}
+.v-show-content {
+    background: none!important;
+    padding: 20px 0 0 0!important;
+}
+</style>
