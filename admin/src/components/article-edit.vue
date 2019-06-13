@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { updateArticleById, getArticleById } from '../api';
+import { updateArticleById, getArticleById, addArticle } from '../api';
 
 export default {
   data () {
@@ -57,18 +57,33 @@ export default {
           description: this.input_desc,
           content: this.mdcontent
         }
-        this.article_id && updateArticleById(this.article_id, param).then(data => {
-          if (data.code === 0) {
-            this.showToastSuccess('保存成功')
-          } else {
-            this.alertErrMsg(data.msg || data.error.message);
-          }
-          loading.close();
-        }).catch(err => {
-          console.error(err);
-          this.alertErrMsg(err);
-          loading.close();
-        });
+        if (this.type === 1) { // 编辑
+          this.article_id && updateArticleById(this.article_id, param).then(data => {
+            if (data.code === 0) {
+              this.showToastSuccess('保存成功')
+            } else {
+              this.alertErrMsg(data.msg || data.error.message);
+            }
+            loading.close();
+          }).catch(err => {
+            console.error(err);
+            this.alertErrMsg(err);
+            loading.close();
+          });
+        } else if (this.type === 2) { // 新增
+          addArticle(param).then(data => {
+            if (data.code === 0) {
+              this.showToastSuccess('保存成功')
+            } else {
+              this.alertErrMsg(data.msg || data.error.message);
+            }
+            loading.close();
+          }).catch(err => {
+            console.error(err);
+            this.alertErrMsg(err);
+            loading.close();
+          });
+        }
       }
     },
     validate () {
