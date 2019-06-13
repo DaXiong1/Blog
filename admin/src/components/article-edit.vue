@@ -20,32 +20,42 @@ export default {
       article_id: '' // type为1时才有值
     }
   },
+  watch: {
+    '$route': 'init' // 同页面跳转会进来
+  },
   mounted () {
-    const pageParam = this.$route.query || {};
-    this.article_id = pageParam._id || '';
-    if (this.article_id) {
-      this.type = 1
-      const loading = this.$loading();
-      getArticleById(this.article_id).then(data => {
-        if (data.code === 0 && data.result) {
-          const result = data.result || {}
-          this.input_title = result.title;
-          this.input_desc = result.description;
-          this.mdcontent = result.content;
-        } else {
-          this.alertErrMsg(data.msg);
-        }
-        loading.close();
-      }).catch(err => {
-        console.error(err);
-        this.alertErrMsg(err);
-        loading.close();
-      });
-    } else {
-      this.type = 2
-    }
+    this.init()
   },
   methods: {
+    init () {
+      const pageParam = this.$route.query || {};
+      this.article_id = pageParam._id || '';
+      if (this.article_id) {
+        this.type = 1
+        const loading = this.$loading();
+        getArticleById(this.article_id).then(data => {
+          if (data.code === 0 && data.result) {
+            const result = data.result || {}
+            this.input_title = result.title;
+            this.input_desc = result.description;
+            this.mdcontent = result.content;
+          } else {
+            this.alertErrMsg(data.msg);
+          }
+          loading.close();
+        }).catch(err => {
+          console.error(err);
+          this.alertErrMsg(err);
+          loading.close();
+        });
+      } else {
+        this.type = 2
+        this.input_desc = ''
+        this.input_title = ''
+        this.mdcontent = ''
+        this.article_id = ''
+      }
+    },
     // value为md，render为html
     changeMavon (value, render) {
     },
