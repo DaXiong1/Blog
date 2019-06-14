@@ -16,3 +16,5 @@ export const getArticleById = (id) => axios.get(`${URL_PREFIX}article_overview/g
 export const updateArticleById = (id, param = {}) => axios.post(`${URL_PREFIX}article_overview/update/${id}`, { ...param })
 
 export const addArticle = (param = {}) => axios.put(`${URL_PREFIX}article_overview/add`, { ...param })
+
+export const login = (param = {}) => axios.post(`${URL_PREFIX}article_overview/login`, { ...param })

@@ -18,6 +18,8 @@
 </template>
 
 <script>
+import { login } from '../api';
+
 export default {
   data () {
     var validateUser = (rule, value, callback) => {
@@ -56,7 +58,23 @@ export default {
       submitForm (formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            console.log(this.ruleForm)
+            const loading = this.$loading();
+            login()
+              .then(data => {
+                if (data.code === 0) {
+                  const result = data.result || {};
+                  const token = result.token
+                  window.localStorage.setItem('token', token)
+                } else {
+                  this.alertErrMsg(data.msg);
+                }
+                loading.close();
+              })
+              .catch(err => {
+                console.error(err);
+                this.alertErrMsg(err);
+                loading.close();
+              });
           } else {
             console.log('error submit!!');
             return false;
