@@ -5,6 +5,12 @@ const MONGODB = {
   prouri: 'mongodb://xxxxx@xxxxx/blog'
 }
 
+const USERMSG = {
+  adminUsername: 'DaXiong1',
+  adminPassword: 'DaXiong1InAnfield',
+  secretOrPrivateKey: 'LiverpoolIsChampion'
+}
+
 const APP = {
   ROOT_PATH: '/api',
   LIMIT: 10,
@@ -13,5 +19,6 @@ const APP = {
 
 export default {
   MONGODB,
+  USERMSG,
   APP
 }
