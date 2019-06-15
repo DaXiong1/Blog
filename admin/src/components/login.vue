@@ -42,7 +42,7 @@ export default {
             password: ''
         },
         rules: {
-          pass: [
+          password: [
             { validator: validatePass, trigger: 'blur' }
           ],
           username: [
@@ -59,14 +59,16 @@ export default {
         this.$refs[formName].validate((valid) => {
           if (valid) {
             const loading = this.$loading();
-            login()
+            login(this.ruleForm)
               .then(data => {
                 if (data.code === 0) {
                   const result = data.result || {};
                   const token = result.token
                   window.localStorage.setItem('token', token)
+                  const currentUrl = window.sessionStorage.getItem('cur_url')
+                  currentUrl && (location.href = currentUrl) // 跳转至登录前的页面
                 } else {
-                  this.alertErrMsg(data.msg);
+                  this.alertErrMsg(data.msg || data.message);
                 }
                 loading.close();
               })

@@ -1,8 +1,24 @@
 import axios from 'axios'
 
+// 注册一个拦截器处理请求
+axios.interceptors.request.use((req) => {
+  // 非get请求加token校验
+  if (req.method !== 'get') {
+    req.headers.Authorization = window.localStorage.getItem('token') || ''
+  }
+  return req
+}, function (err) {
+  return Promise.reject(err)
+})
+
 // 注册一个拦截器处理响应
 axios.interceptors.response.use((response) => {
-  return response.data || {}
+  const data = response.data || {}
+  if (data.code === -9999) { // 未登录
+    window.sessionStorage.setItem('cur_url', location.href)
+    location.href = (process.env.NODE_ENV === 'production' ? '' : 'http://127.0.0.1:8080') + '#/login'
+  }
+  return data
 }, function (err) {
   return Promise.reject(err)
 })
@@ -17,4 +33,4 @@ export const updateArticleById = (id, param = {}) => axios.post(`${URL_PREFIX}ar
 
 export const addArticle = (param = {}) => axios.put(`${URL_PREFIX}article_overview/add`, { ...param })
 
-export const login = (param = {}) => axios.post(`${URL_PREFIX}article_overview/login`, { ...param })
+export const login = (param = {}) => axios.post(`${URL_PREFIX}users/login`, { ...param })

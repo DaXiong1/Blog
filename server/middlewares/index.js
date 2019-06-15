@@ -3,6 +3,7 @@
 import bodyParser from 'koa-bodyparser'
 import helmet from 'koa-helmet'
 import cors from 'koa-cors'
+import requestHandler from './requestHandler'
 
 const middlewares = (app) => {
   app.use(async (ctx, next) => {
@@ -15,6 +16,8 @@ const middlewares = (app) => {
   app.use(cors({
     origin: true
   }))
+
+  app.use(requestHandler)
 
   app.use(helmet())
 
