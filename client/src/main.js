@@ -8,6 +8,7 @@ import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
 import format_date from './mixins/format_date'
 import message from './mixins/message'
+import style from './mixins/style'
 
 Vue.config.productionTip = false
 
@@ -21,6 +22,7 @@ Vue.prototype.$alert = MessageBox.alert
 
 Vue.mixin(format_date)
 Vue.mixin(message)
+Vue.mixin(style)
 
 /* eslint-disable no-new */
 new Vue({

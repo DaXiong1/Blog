@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
     <Nav :type="0"></Nav>
-    <div class="mainContent">
+    <div class="mainContent" :style="mainContentStyle">
       <div class="articleBox">
         <main class="box main">
           <section class="article">
@@ -52,11 +52,13 @@
         </div>
       </div>
     </div>
+    <Foot></Foot>
   </div>
 </template>
 
 <script>
 import Nav from './nav';
+import Foot from './foot';
 import { getAll } from '../api';
 
 export default {
@@ -89,7 +91,8 @@ export default {
     }
   },
   components: {
-    Nav: Nav
+    Nav: Nav,
+    Foot: Foot
   }
 };
 </script>
