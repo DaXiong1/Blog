@@ -15,13 +15,13 @@ export default {
     return {
       imgIndex: 0,
       IMG_LIST: [
-        'https://d3j2s6hdd6a7rg.cloudfront.net/v2/uploads/media/default/0001/89/d4eeff3454cc9df157cb5c4d2ad4285dfd233b58.jpeg',
-        '../../static/images/1.jpg'
+        // 'https://d3j2s6hdd6a7rg.cloudfront.net/v2/uploads/media/default/0001/89/d4eeff3454cc9df157cb5c4d2ad4285dfd233b58.jpeg',
+        '../../static/images/main_bg.jpg'
       ]
     };
   },
   mounted () {
-    this.imgIndex = 1
+    // this.imgIndex = 1
     // setInterval(() => {
     //   if (this.imgIndex === this.IMG_LIST.length) {
     //     this.imgIndex = 0

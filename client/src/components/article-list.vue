@@ -1,3 +1,4 @@
+
 <template>
   <div class="layout">
     <Nav :type="0"></Nav>
@@ -47,9 +48,10 @@
           </div>
           </section>-->
         </main>
-        <div class="sideIcon">
+        <!-- <div class="sideIcon">
           <i class="iconfont">&#xe635;</i>
-        </div>
+        </div> -->
+        <!-- <el-backtop target=".page-component__scroll .el-scrollbar__wrap"></el-backtop> -->
       </div>
     </div>
     <Foot></Foot>
