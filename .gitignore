@@ -62,6 +62,7 @@ typings/
 
 # FE
 /dist/
+*/dist/
 .idea
 .vscode
 *.suo
