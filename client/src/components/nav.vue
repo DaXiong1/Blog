@@ -5,7 +5,8 @@
         <a
           v-for="(item,index) in navs"
           :key="index"
-          :href="item.href"
+          href="javascript:void(0);"
+          @click="jump(item.href)"
           :class="{active: index == type}"
         >{{item.title}}</a>
       </nav>
@@ -31,10 +32,13 @@ export default {
     return {
       showSearch: false,
       articleId: '',
-      navs: [{ href: '/', title: '文章' }, { href: '/about', title: '关于作者' }]
+      navs: [{ href: '/', title: '文章' }, { href: 'about', title: '关于作者' }]
     };
   },
   methods: {
+    jump: function (toPage) {
+      toPage && this.$router.push(toPage)
+    },
     toShowSearch: function () {
       this.showSearch = true;
     },

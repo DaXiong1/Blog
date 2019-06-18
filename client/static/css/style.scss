@@ -2,6 +2,26 @@
 body {
     margin: 0;
 }
+.app_main {
+    flex: 1;
+}
+.app_main::before {
+    width: 100%;
+    min-height: 918px;
+    flex: 1;
+    content: "";
+    position: absolute;
+    top:0;
+    left:0;
+    z-index:-1;
+}
+.app_left, .app_right {
+    flex: 0 0 10em;
+    background-color: #02020a;
+}
+.app_left {
+    order: -1;
+}
 .layout {
     overflow-x: hidden;
     overflow-y: scroll;
@@ -293,4 +313,63 @@ body {
     font-size: 16px;
     -webkit-font-smoothing: antialiased;
     font-style: normal;
+}
+/* 关于页面 */
+.me {
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    .content {
+        height: 738px;
+        width: 400px;
+        margin-left: 60px;
+        text-align: center;
+        p {
+            font-size: 18px;
+            font-weight: 500;
+            margin: 12px 0;
+            color: #e7fab8;
+        }
+        .small_p {
+            margin-top: 30px;
+            border-top: 1px dotted #717171;
+            padding-top: 20px;
+            p {
+                font-size: 15px;
+                color: #c2fb3a;
+            }
+        }
+    }
+    .aboutme {
+        height: 738px;
+        width: 460px;
+        border-radius: 50%;
+        // background-color: rgba(0,0,0,0.7);
+        display: flex;
+        // justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin-left: 100px;
+        color: #e7fab8;
+        .logo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 16px;
+            font-weight: 500;
+            margin: 10px 0;
+            text-align: center;
+            .iconfont {
+                font-size: 20px;
+                margin-right: 16px;
+            }
+        }
+        .big {
+            font-size: 24px;
+            font-weight: 600;
+        }
+    }
 }

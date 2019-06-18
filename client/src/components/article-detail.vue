@@ -1,34 +1,36 @@
 <template>
-  <div class="layout">
-    <Nav :type="0"></Nav>
-    <div class="mainContent">
-      <section>
-        <div class="markdown articleDetailBox">
-          <div class="title">
-            <h1>{{title}}</h1>
-          </div>
-          <!-- <div>{{content}}</div> -->
-          <mavon-editor :value="content" class="md" :subfield="false" :defaultOpen="defaultOpen" :editable="false" :toolbarsFlag="false" :ishljs="true" :scrollStyle="false" :boxShadow="false" />
-        </div>
-        <div class="info articleDetailBox">
-          <p>本文于&nbsp;2019/05/18 下午&nbsp;发布，当前已被围观&nbsp;1100&nbsp;次</p>
-          <p>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
-        </div>
-        <!-- <div class="arcMata articleDetailBox" style="background: transparent">
-          <div class="arcMataInfo">
-            <div class="like">
-              <i class="iconfont" v-if="true" style="color: #51ce23">&#xe63b;</i>
-              <i class="iconfont" v-else>&#xe65c;</i>
-              <span>100</span>人喜欢
+  <div class="app_main">
+    <div class="layout">
+      <Nav :type="0"></Nav>
+      <div class="mainContent">
+        <section>
+          <div class="markdown articleDetailBox">
+            <div class="title">
+              <h1>{{title}}</h1>
             </div>
-            <div class="view">
-              <span>100</span>条评论
-            </div>
+            <!-- <div>{{content}}</div> -->
+            <mavon-editor :value="content" class="md" :subfield="false" :defaultOpen="defaultOpen" :editable="false" :toolbarsFlag="false" :ishljs="true" :scrollStyle="false" :boxShadow="false" />
           </div>
-        </div> -->
-      </section>
+          <div class="info articleDetailBox">
+            <p>本文于&nbsp;2019/05/18 下午&nbsp;发布，当前已被围观&nbsp;1100&nbsp;次</p>
+            <p>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+          </div>
+          <!-- <div class="arcMata articleDetailBox" style="background: transparent">
+            <div class="arcMataInfo">
+              <div class="like">
+                <i class="iconfont" v-if="true" style="color: #51ce23">&#xe63b;</i>
+                <i class="iconfont" v-else>&#xe65c;</i>
+                <span>100</span>人喜欢
+              </div>
+              <div class="view">
+                <span>100</span>条评论
+              </div>
+            </div>
+          </div> -->
+        </section>
+      </div>
+      <Foot></Foot>
     </div>
-    <Foot></Foot>
   </div>
 </template>
 
@@ -77,7 +79,7 @@ export default {
 };
 </script>
 
-<style>
+<style slot-scope>
 /* markdown样式 */
 .md {
   z-index: auto!important;
@@ -91,5 +93,9 @@ export default {
 .v-show-content {
     background: none!important;
     padding: 20px 0 0 0!important;
+}
+.app_main::before {
+    background-image: url(../../static/images/main_bg.jpg);
+    background-size: cover;
 }
 </style>

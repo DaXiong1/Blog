@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <div class="app_main" :style="'background-image: url(' + IMG_LIST[imgIndex] + ');background-size: cover;'">
-      <router-view/>
-    </div>
+    <router-view/>
     <!-- <div class="app_left"></div>
     <div class="app_right"></div> -->
   </div>
@@ -17,18 +15,11 @@ export default {
       IMG_LIST: [
         // 'https://d3j2s6hdd6a7rg.cloudfront.net/v2/uploads/media/default/0001/89/d4eeff3454cc9df157cb5c4d2ad4285dfd233b58.jpeg',
         '../../static/images/main_bg.jpg'
-      ]
+      ],
+      app_main_style: ''
     };
   },
   mounted () {
-    // this.imgIndex = 1
-    // setInterval(() => {
-    //   if (this.imgIndex === this.IMG_LIST.length) {
-    //     this.imgIndex = 0
-    //   } else {
-    //     this.imgIndex++
-    //   }
-    // }, 5000)
   }
 }
 </script>
@@ -46,15 +37,5 @@ export default {
     min-height: 100vh;
     // flex-direction: column;
     flex: 1;
-    .app_main {
-      flex: 1;
-    }
-    .app_left, .app_right {
-      flex: 0 0 10em;
-      background-color: #02020a;
-    }
-    .app_left {
-      order: -1;
-    }
   }
 </style>
