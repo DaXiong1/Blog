@@ -7,7 +7,7 @@ axios.interceptors.response.use((response) => {
   return Promise.reject(err)
 })
 
-const URL_PREFIX = process.env.NODE_ENV === 'production' ? '' : 'http://127.0.0.1:3008/api/'
+const URL_PREFIX = process.env.NODE_ENV === 'production' ? 'http://120.76.176.165:3008/api/' : 'http://127.0.0.1:3008/api/'
 
 export const getAll = () => axios.get(`${URL_PREFIX}article_overview/getAll`)
 
