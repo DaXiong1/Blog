@@ -95,7 +95,7 @@ export default {
     padding: 20px 0 0 0!important;
 }
 .app_main::before {
-    background-image: url(../../static/images/main_bg.jpg);
+    background-image: url(http://pthq9vz1y.bkt.clouddn.com/main_bg.jpg);
     background-size: cover;
 }
 </style>

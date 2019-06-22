@@ -16,14 +16,14 @@ axios.interceptors.response.use((response) => {
   const data = response.data || {}
   if (data.code === -9999) { // 未登录
     window.sessionStorage.setItem('cur_url', location.href)
-    location.href = (process.env.NODE_ENV === 'production' ? '' : 'http://127.0.0.1:8080') + '#/login'
+    location.href = (process.env.NODE_ENV === 'production' ? 'http://120.76.176.165:3008' : 'http://127.0.0.1:8080') + '#/login'
   }
   return data
 }, function (err) {
   return Promise.reject(err)
 })
 
-const URL_PREFIX = process.env.NODE_ENV === 'production' ? '' : 'http://127.0.0.1:3008/api/'
+const URL_PREFIX = process.env.NODE_ENV === 'production' ? 'http://120.76.176.165:3008/api/' : 'http://127.0.0.1:3008/api/'
 
 export const getAll = () => axios.get(`${URL_PREFIX}article_overview/getAll`)
 

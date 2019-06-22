@@ -43,7 +43,7 @@ export default {
 </script>
 <style slot-scope>
 .app_main::before {
-    background-image: url(../../static/images/main_bg.jpg);
+    background-image: url(http://pthq9vz1y.bkt.clouddn.com/main_bg.jpg);
     background-size: cover;
 }
 .app_main_about::before {
