@@ -103,9 +103,9 @@ export default {
 };
 </script>
 <style slot-scope>
-.app_main::before {
+/* .app_main::before {
     background-image: url(http://pthq9vz1y.bkt.clouddn.com/main_bg.jpg);
     background-size: cover;
     filter: blur(0);
-}
+} */
 </style>

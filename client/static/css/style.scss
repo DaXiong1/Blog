@@ -4,6 +4,8 @@ body {
 }
 .app_main {
     flex: 1;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 858px, #050100 858px, #be0b11 100%), url(http://pthq9vz1y.bkt.clouddn.com/main_bg.jpg) no-repeat;
+  background-size: 100% auto;
 }
 .app_main::before {
     width: 100%;
@@ -13,7 +15,7 @@ body {
     position: absolute;
     top:0;
     left:0;
-    z-index:-1;
+    z-index: -1;
 }
 .app_left, .app_right {
     flex: 0 0 10em;

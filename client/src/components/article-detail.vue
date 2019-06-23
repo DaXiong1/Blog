@@ -13,7 +13,7 @@
           </div>
           <div class="info articleDetailBox">
             <p>本文于&nbsp;2019/05/18 下午&nbsp;发布，当前已被围观&nbsp;1100&nbsp;次</p>
-            <p>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+            <!-- <p>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p> -->
           </div>
           <!-- <div class="arcMata articleDetailBox" style="background: transparent">
             <div class="arcMataInfo">
@@ -94,8 +94,10 @@ export default {
     background: none!important;
     padding: 20px 0 0 0!important;
 }
-.app_main::before {
+/* .app_main::before {
     background-image: url(http://pthq9vz1y.bkt.clouddn.com/main_bg.jpg);
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 900px, #FF0000 100%, #00FF00), url(http://pthq9vz1y.bkt.clouddn.com/main_bg.jpg);
     background-size: cover;
-}
+    background-size: 100% 100%;
+} */
 </style>
