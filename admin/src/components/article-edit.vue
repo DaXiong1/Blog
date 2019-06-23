@@ -71,6 +71,9 @@ export default {
           this.article_id && updateArticleById(this.article_id, param).then(data => {
             if (data.code === 0) {
               this.showToastSuccess('保存成功')
+              setTimeout(() => {
+                this.$router.push('articles')
+              }, 2000)
             } else {
               this.alertErrMsg(data.msg || data.error.message);
             }
@@ -84,6 +87,9 @@ export default {
           addArticle(param).then(data => {
             if (data.code === 0) {
               this.showToastSuccess('保存成功')
+              setTimeout(() => {
+                this.$router.push('articles')
+              }, 2000)
             } else {
               this.alertErrMsg(data.msg || data.error.message);
             }
