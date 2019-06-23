@@ -18,7 +18,7 @@
                     <p class="big">大熊弋<i style="margin: 0 10px 0 50px;" class="iconfont">&#xe615;</i>深圳</p>
                     <p class="big"><i class="iconfont">&#xe604;</i>毕业于吉林大学 信息工程</p>
                     <p class="big"><i class="iconfont">&#xe621;</i>https://github.com/DaXiong1</p>
-                    <p class="big"><i class="iconfont">&#xe60a;</i>https://github.com/DaXiong1</p>
+                    <p class="big"><i class="iconfont">&#xe60a;</i>zhang_sx09@163.com</p>
                 </div>
             </div>
         </div>
