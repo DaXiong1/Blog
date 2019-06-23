@@ -12,7 +12,8 @@ export const putArticle = async (opts) => {
 // 获取文章列表
 export const getAllArticles = async () => {
   let article = null
-  article = await ArticleOverview.find()
+  // 按时间倒序排列
+  article = await ArticleOverview.find().sort('-update_at')
   return article
 }
 
