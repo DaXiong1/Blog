@@ -6,9 +6,9 @@ const MONGODB = {
 }
 
 const USERMSG = {
-  adminUsername: 'DaXiong1',
-  adminPassword: 'DaXiong1InAnfield',
-  secretOrPrivateKey: 'LiverpoolIsChampion'
+  adminUsername: 'xxx',
+  adminPassword: 'xxx',
+  secretOrPrivateKey: 'xxx'
 }
 
 const APP = {
