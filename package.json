@@ -10,6 +10,8 @@
     "server-dev": "pm2 start server/start.js --watch",
     "server-build": "webpack --progress --config server/webpack.config.js",
     "server-prod": "pm2 start server/dist/server.bundle.js --name server --watch",
+    "server-setup": "pm2 deploy deploy.yaml production setup",
+    "server-update": "pm2 deploy deploy.yaml production update",
     "admin-dev": "webpack-dev-server --inline --progress --config admin/build/webpack.dev.conf.js",
     "admin-build": "webpack --progress --config admin/build/webpack.prod.conf.js",
     "admin-prod": "pm2 serve ./admin/dist 8080 --name admin --watch"
