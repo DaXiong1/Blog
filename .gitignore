@@ -69,3 +69,5 @@ typings/
 *.ntvs*
 *.njsproj
 *.sln
+
+server/config/index.js
