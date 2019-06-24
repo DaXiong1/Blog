@@ -69,8 +69,3 @@ typings/
 *.ntvs*
 *.njsproj
 *.sln
-
-# 服务端只通过git控制server文件夹下的内容,client和admin直接更新dist文件夹
-admin/
-client/
-server/config/index.js

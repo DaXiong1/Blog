@@ -7,11 +7,7 @@
     "client-dev": "webpack-dev-server --inline --progress --config client/build/webpack.dev.conf.js",
     "client-build": "webpack --progress --config client/build/webpack.prod.conf.js",
     "client-prod": "pm2 serve ./client/dist 8081 --name client --watch",
-<<<<<<< HEAD
     "server-dev": "pm2 start server/start.js --watch",
-=======
-    "server-dev": "pm2-dev start server/start.js",
->>>>>>> b93797a21c69a080740a74ba748dae867ccbc3ff
     "server-build": "webpack --progress --config server/webpack.config.js",
     "server-prod": "pm2 start server/dist/server.bundle.js --name server --watch",
     "admin-dev": "webpack-dev-server --inline --progress --config admin/build/webpack.dev.conf.js",
