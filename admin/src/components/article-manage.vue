@@ -48,7 +48,7 @@
                       <div class="divider divider_vertical"></div>
                       <a href="javascript:void(0)" @click="updateArticle(item._id)">修改</a>
                       <div class="divider divider_vertical"></div>
-                      <a href="javascript:void(0)">删除</a>
+                      <a href="javascript:void(0)" @click="deleteArticle(item._id)">删除</a>
                     </span>
                   </td>
                 </tr>
@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import { getAll } from '../api';
+import { getAll, delArticleById } from '../api';
 
 export default {
   data () {
@@ -71,25 +71,41 @@ export default {
     }
   },
   created () {
-    const loading = this.$loading();
-    getAll()
-      .then(data => {
+    this.initArticleList()
+  },
+  methods: {
+    initArticleList () {
+      const loading = this.$loading();
+      getAll().then(data => {
         if (data.code === 0) {
           this.articleList = data.result || [];
         } else {
           this.alertErrMsg(data.msg);
         }
         loading.close();
-      })
-      .catch(err => {
+      }).catch(err => {
         console.error(err);
         this.alertErrMsg(err);
         loading.close();
       });
-  },
-  methods: {
+    },
     updateArticle (_id) {
       _id && this.$router.push(`editArticle?_id=${_id}`)
+    },
+    deleteArticle (_id) {
+      this.confirmMsg('确定删除吗？', () => {
+        _id && delArticleById(_id).then(data => {
+          if (data.code === 0) {
+            this.showToastSuccess('删除成功')
+            this.initArticleList()
+          } else {
+            this.alertErrMsg(data.msg);
+          }
+        }).catch(err => {
+          console.error(err);
+          this.alertErrMsg(err);
+        });
+      })
     }
   }
 }

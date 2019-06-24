@@ -26,6 +26,7 @@ Vue.use(mavonEditor)
 Vue.prototype.$loading = Loading.service
 Vue.prototype.$msgbox = MessageBox
 Vue.prototype.$alert = MessageBox.alert
+Vue.prototype.$confirm = MessageBox.confirm
 Vue.prototype.$message = Message
 
 Vue.mixin(format_date)

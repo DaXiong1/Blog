@@ -34,3 +34,5 @@ export const updateArticleById = (id, param = {}) => axios.post(`${URL_PREFIX}ar
 export const addArticle = (param = {}) => axios.put(`${URL_PREFIX}article_overview/add`, { ...param })
 
 export const login = (param = {}) => axios.post(`${URL_PREFIX}users/login`, { ...param })
+
+export const delArticleById = (id) => axios.delete(`${URL_PREFIX}article_overview/del/${id}`)
