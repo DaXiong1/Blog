@@ -30,6 +30,16 @@ const articleOverviewSchema = new mongoose.Schema({
   likes: { type: Number, default: 0 }
 })
 
+// 添加钩子，更新时间
+articleOverviewSchema.pre('findOneAndUpdate', function (next) {
+  try {
+    this.findOneAndUpdate({}, { update_at: Date.now() })
+  } catch (err) {
+    console.error(err)
+  }
+  next()
+})
+
 // 注册model
 const AO = mongoose.model('ArticleOverview', articleOverviewSchema)
 
