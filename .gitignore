@@ -69,3 +69,5 @@ typings/
 *.ntvs*
 *.njsproj
 *.sln
+
+admin/
