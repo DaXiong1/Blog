@@ -22,7 +22,7 @@ export class usersController {
         if (result0.password === md5Decode(password)) {
             // 登录成功,生成一个token
             const token = jwt.sign({ name: username }, config.USERMSG.secretOrPrivateKey, {
-                expiresIn: 60 * 60 * 24 // 24小时过期
+                expiresIn: 60 * 60 * 24 * 7 // 7天过期
             });
             resSuccess({ctx, msg: '登录成功', result: { token }})
         } else {
