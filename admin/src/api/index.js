@@ -16,7 +16,9 @@ axios.interceptors.response.use((response) => {
   const data = response.data || {}
   if (data.code === -9999) { // 未登录
     window.sessionStorage.setItem('cur_url', location.href)
-    location.href = (process.env.NODE_ENV === 'production' ? 'http://120.76.176.165:8080' : 'http://127.0.0.1:8080') + '#/login'
+    setTimeout(() => {
+      location.href = (process.env.NODE_ENV === 'production' ? 'http://120.76.176.165:8080' : 'http://127.0.0.1:8080') + '#/login'
+    }, 1500)
   }
   return data
 }, function (err) {

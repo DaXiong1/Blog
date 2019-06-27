@@ -35,7 +35,7 @@ const middlewares = (app) => {
       ctx.body = { error }
     }
     if (ctx.status === 404 || ctx.status === 405) {
-      ctx.body = { code: -1, message: '无效的api请求' }
+      ctx.body = { code: -1, msg: '无效的api请求' }
     }
   })
 }

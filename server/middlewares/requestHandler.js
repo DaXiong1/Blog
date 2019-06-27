@@ -8,7 +8,7 @@ export default async (ctx, next) => {
         const token = req.header.authorization
         const result = await verify(token)
         if (!result) {
-            ctx.body = { code: -9999, message: '未登录' }
+            ctx.body = { code: -9999, msg: '未登录' }
         } else {
             await next()
         }
