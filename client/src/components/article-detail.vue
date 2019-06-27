@@ -94,6 +94,10 @@ export default {
     background: none!important;
     padding: 20px 0 0 0!important;
 }
+.markdown-body .highlight pre,
+.markdown-body pre {
+  background-color: #626262!important;
+}
 /* .app_main::before {
     background-image: url(http://pthq9vz1y.bkt.clouddn.com/main_bg.jpg);
     background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 900px, #FF0000 100%, #00FF00), url(http://pthq9vz1y.bkt.clouddn.com/main_bg.jpg);
