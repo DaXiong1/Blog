@@ -35,3 +35,8 @@ curl -v -X PUT -d "username=xxx&password=yyy" http://localhost:3008/api/users/re
 ```
 接下来就可以本地调试了
 ### 一些截图
+![1](https://raw.githubusercontent.com/DaXiong1/koa-demo/master/img/1561623238589.jpg)
+![2](https://raw.githubusercontent.com/DaXiong1/koa-demo/master/img/1561623331904.jpg)
+![3](https://raw.githubusercontent.com/DaXiong1/koa-demo/master/img/1561623365791.jpg)
+![4](https://raw.githubusercontent.com/DaXiong1/koa-demo/master/img/1561623423377.jpg)
+![5](https://raw.githubusercontent.com/DaXiong1/koa-demo/master/img/1561623466094.jpg)
