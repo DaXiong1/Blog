@@ -12,7 +12,7 @@
             <mavon-editor :value="content" class="md" :subfield="false" :defaultOpen="defaultOpen" :editable="false" :toolbarsFlag="false" :ishljs="true" :scrollStyle="false" :boxShadow="false" />
           </div>
           <div class="info articleDetailBox">
-            <p>本文于&nbsp;2019/05/18 下午&nbsp;发布，当前已被围观&nbsp;1100&nbsp;次</p>
+            <p>本文于&nbsp;{{formatDate(create_at)}}&nbsp;发布，当前已被围观&nbsp;{{views}}&nbsp;次</p>
             <!-- <p>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p> -->
           </div>
           <!-- <div class="arcMata articleDetailBox" style="background: transparent">
@@ -45,6 +45,7 @@ export default {
     return {
       title: '',
       content: '',
+      create_at: '',
       defaultOpen: 'preview'
     };
   },
@@ -55,9 +56,12 @@ export default {
     if (article_id) {
       const loading = this.$loading();
       getArticleById(article_id).then(data => {
-        if (data.code === 0 && data.result) {
-          this.title = data.result.title;
-          this.content = data.result.content;
+        const r = data.result || {}
+        if (data.code === 0 && r) {
+          this.title = r.title;
+          this.content = r.content;
+          this.create_at = r.create_at
+          this.views = r.views
         } else {
           this.alertErrMsg(data.msg);
         }
