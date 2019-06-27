@@ -49,10 +49,7 @@
             </div>
             </section>-->
           </main>
-          <!-- <div class="sideIcon">
-            <i class="iconfont">&#xe635;</i>
-          </div> -->
-          <!-- <el-backtop target=".page-component__scroll .el-scrollbar__wrap"></el-backtop> -->
+          <BackTop></BackTop>
         </div>
       </div>
       <Foot></Foot>
@@ -63,6 +60,7 @@
 <script>
 import Nav from './nav';
 import Foot from './foot';
+import BackTop from './back-top';
 import { getAll } from '../api';
 
 export default {
@@ -98,7 +96,8 @@ export default {
   },
   components: {
     Nav: Nav,
-    Foot: Foot
+    Foot: Foot,
+    BackTop: BackTop
   }
 };
 </script>

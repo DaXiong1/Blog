@@ -28,6 +28,7 @@
             </div>
           </div> -->
         </section>
+        <BackTop></BackTop>
       </div>
       <Foot></Foot>
     </div>
@@ -37,6 +38,7 @@
 <script>
 import Nav from './nav';
 import Foot from './foot';
+import BackTop from './back-top';
 import { getArticleById } from '../api';
 
 export default {
@@ -78,7 +80,8 @@ export default {
   methods: {},
   components: {
     Nav: Nav,
-    Foot: Foot
+    Foot: Foot,
+    BackTop: BackTop
   }
 };
 </script>
