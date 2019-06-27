@@ -23,12 +23,12 @@ export default {
     scrollToTop () {
         let timer = setInterval(() => {
             let dtop = document.documentElement.scrollTop;
-            let speed = Math.floor(-dtop/10);
+            let speed = Math.floor(-dtop / 10);
             document.documentElement.scrollTop = dtop + speed;
-            if(dtop==0){              
+            if (dtop === 0) {
                 clearInterval(timer);
             }
-        },30)
+        }, 30)
     }
   }
 };
