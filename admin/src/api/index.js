@@ -17,7 +17,7 @@ axios.interceptors.response.use((response) => {
   if (data.code === -9999) { // 未登录
     window.sessionStorage.setItem('cur_url', location.href)
     setTimeout(() => {
-      location.href = (process.env.NODE_ENV === 'production' ? 'http://120.76.176.165:8080' : 'http://127.0.0.1:8080') + '#/login'
+      location.href = (process.env.NODE_ENV === 'production' ? 'http://admin.daxiong1.cn' : 'http://127.0.0.1:8080') + '#/login'
     }, 1500)
   }
   return data
@@ -25,7 +25,7 @@ axios.interceptors.response.use((response) => {
   return Promise.reject(err)
 })
 
-const URL_PREFIX = process.env.NODE_ENV === 'production' ? 'http://120.76.176.165:3008/api/' : 'http://127.0.0.1:3008/api/'
+const URL_PREFIX = process.env.NODE_ENV === 'production' ? 'http://admin.daxiong1.cn/api/' : 'http://127.0.0.1:3008/api/'
 
 export const getAll = () => axios.get(`${URL_PREFIX}article_overview/getAll`)
 

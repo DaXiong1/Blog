@@ -20,6 +20,7 @@ const middlewares = (app) => {
   app.use(requestHandler)
 
   app.use(helmet())
+  app.use(helmet.referrerPolicy({ policy: 'no-referrer-when-downgrade' }))
 
   app.use(bodyParser({
     jsoinLimit: '10mb',
