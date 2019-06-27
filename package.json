@@ -4,7 +4,7 @@
   "description": "A personal bog with koa+vue",
   "main": "index.js",
   "scripts": {
-    "client-dev": "webpack-dev-server --inline --progress --config client/build/webpack.dev.conf.js",
+    "client-dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --config client/build/webpack.dev.conf.js",
     "client-build": "webpack --progress --config client/build/webpack.prod.conf.js",
     "client-prod": "pm2 serve ./client/dist 8081 --name client --watch",
     "server-dev": "pm2 start server/start.js --watch",
@@ -12,7 +12,7 @@
     "server-prod": "pm2 start server/dist/server.bundle.js --name server --watch",
     "server-setup": "pm2 deploy deploy.yaml production setup",
     "server-update": "pm2 deploy deploy.yaml production update",
-    "admin-dev": "webpack-dev-server --inline --progress --config admin/build/webpack.dev.conf.js",
+    "admin-dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --config admin/build/webpack.dev.conf.js",
     "admin-build": "webpack --progress --config admin/build/webpack.prod.conf.js",
     "admin-prod": "pm2 serve ./admin/dist 8080 --name admin --watch"
   },
