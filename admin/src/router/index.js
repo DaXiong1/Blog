@@ -8,6 +8,7 @@ import ArticleEdit from '@/components/article-edit'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     { path: '/', redirect: '/main/articles' },
     {

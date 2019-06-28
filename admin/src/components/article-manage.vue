@@ -44,7 +44,7 @@
                   </td>
                   <td>
                     <span>
-                      <a href="javascript:void(0)" target="_brank">查看</a>
+                      <a target="_brank" :href="'http://www.daxiong1.cn/article?_id=' + item._id">查看</a>
                       <div class="divider divider_vertical"></div>
                       <a href="javascript:void(0)" @click="updateArticle(item._id)">修改</a>
                       <div class="divider divider_vertical"></div>
