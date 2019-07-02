@@ -8,7 +8,7 @@ import config from '../config'
 export class articleOverviewController {
   // 添加文章
   @put('add')
-  @required({body: ['title', 'description', 'content']})
+  @required({body: ['title', 'description', 'content', 'labels']})
   async addArticle (ctx) {
     const opts = ctx.request.body
     try {
@@ -27,8 +27,9 @@ export class articleOverviewController {
   // 获取文章集合
   @get('getAll')
   async getAllArticle (ctx) {
+    const opts = ctx.request.query
     try {
-      const res = await getAllArticles()
+      const res = await getAllArticles(opts.label)
       resSuccess({ ctx, msg: '获取文章列表成功', result: res })
     } catch (err) {
       resError({ctx, msg: '获取文章列表失败', err})
@@ -52,7 +53,7 @@ export class articleOverviewController {
 
   // 编辑文章
   @post('update/:id')
-  @required({body: ['title', 'description', 'content']})
+  @required({body: ['title', 'description', 'content', 'labels']})
   async updateArticle (ctx) {
     const opts = ctx.request.body
     const {id} = ctx.params
