@@ -43,6 +43,7 @@
                 <div class="labels">
                   <div class="title">标签</div>
                   <div class="label-list">
+                    <a href="javascript:void(0)" @click="getArticlesByLabel()">全部</a>
                     <a href="javascript:void(0)" v-for="(item,index) in labelList" :key="index" @click="getArticlesByLabel(item._id)">{{item.name}}</a>
                   </div>
                 </div>
@@ -111,7 +112,7 @@ export default {
       _id && this.$router.push(`article?_id=${_id}`)
     },
     getArticlesByLabel: function (label_id) {
-      label_id && this.getArticles(label_id)
+      this.getArticles(label_id || '')
     }
   },
   components: {
