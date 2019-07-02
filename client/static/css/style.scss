@@ -173,6 +173,13 @@ body {
                                     font-weight: 400;
                                 }
                             }
+                            .label {
+                                margin: 0 5px;
+                                strong {
+                                    font-size: 12px;
+                                    font-weight: 400;
+                                }
+                            }
                         }
                     }
                     .item::after {
@@ -191,6 +198,8 @@ body {
                     box-sizing: border-box;
                     padding-top: 24px;
                     float: right;
+                    margin-right: -30px;
+                    font-weight: 600;
                     .fixedRight {
                         position: fixed;
                         width: 250px;
@@ -208,6 +217,7 @@ body {
                                 a {
                                     display: inline-block;
                                     padding: 10px;
+                                    color: #f9fee8;
                                 }
                             }
                         }

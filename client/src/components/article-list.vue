@@ -23,6 +23,10 @@
                   <span class="time">
                     <strong>{{item.views}}</strong>次阅读
                   </span>
+                  <i style="margin-left: 20px;" class="iconfont">&#xe8cb;</i>
+                  <span class="label" v-for="(item1,index1) in item.labels" :key="index1">
+                    <strong>{{item1.name}}</strong>
+                  </span>
                   <!-- <i class="iconfont">&#xe600;</i>
                 <span class="time">
                   <strong>{{item.comments}}</strong>条评论
@@ -34,20 +38,16 @@
                 </div>
               </div>
             </section>
-            <!-- <section class="sideLabel">
-            <div class="fixedRight">
-              <div class="labels">
-                <div class="title">标签</div>
-                <div class="label-list">
-                  <a>哈哈哈</a>
-                  <a>哈哈哈</a>
-                  <a>哈哈哈</a>
-                  <a>哈哈哈</a>
-                  <a>哈哈哈</a>
+            <section class="sideLabel">
+              <div class="fixedRight">
+                <div class="labels">
+                  <div class="title">标签</div>
+                  <div class="label-list">
+                    <a href="javascript:void(0)" v-for="(item,index) in labelList" :key="index" @click="getArticlesByLabel(item._id)">{{item.name}}</a>
+                  </div>
                 </div>
               </div>
-            </div>
-            </section>-->
+            </section>
           </main>
           <BackTop></BackTop>
         </div>
@@ -61,21 +61,39 @@
 import Nav from './nav';
 import Foot from './foot';
 import BackTop from './back-top';
-import { getAll } from '../api';
+import { getAll, getLabels } from '../api';
 
 export default {
   name: 'article-list',
   data () {
     return {
-      articleList: []
+      articleList: [],
+      labelList: []
     };
   },
   mounted () {
   },
   created () {
-    const loading = this.$loading();
-    getAll()
+    this.getArticles()
+    getLabels()
       .then(data => {
+        if (data.code === 0) {
+          this.labelList = data.result || [];
+        } else {
+          this.alertErrMsg(data.msg);
+        }
+      })
+      .catch(err => {
+        console.error(err);
+        this.alertErrMsg(err);
+      });
+  },
+  methods: {
+    getArticles (label) {
+      const loading = this.$loading();
+      let param = {}
+      label && (param = Object.assign(param, {label}))
+      getAll(param).then(data => {
         if (data.code === 0) {
           this.articleList = data.result || [];
         } else {
@@ -88,10 +106,12 @@ export default {
         this.alertErrMsg(err);
         loading.close();
       });
-  },
-  methods: {
+    },
     getArticleDetail: function (_id) {
       _id && this.$router.push(`article?_id=${_id}`)
+    },
+    getArticlesByLabel: function (label_id) {
+      label_id && this.getArticles(label_id)
     }
   },
   components: {

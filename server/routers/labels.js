@@ -6,7 +6,7 @@ import config from '../config'
 @controller(`${config.APP.ROOT_PATH}/label`)
 export class labelController {
   // 添加标签
-  @put('add')
+  @put('addLabel')
   @required({body: ['name', 'description']})
   async addLabel (ctx) {
     const opts = ctx.request.body
@@ -19,7 +19,7 @@ export class labelController {
   }
 
   // 获取标签集合
-  @get('getAll')
+  @get('getAllLabels')
   async getAllLabel (ctx) {
     try {
       const res = await getAllLabels()
@@ -30,7 +30,7 @@ export class labelController {
   }
 
   // 根据id修改标签
-  @post('update/:id')
+  @post('updateLabel/:id')
   @required({body: ['name', 'description']})
   async updateLabelById (ctx) {
     const { id } = ctx.params
@@ -44,7 +44,7 @@ export class labelController {
   }
 
   // 根据article_id删除文章内容
-  @del('del/:id') // 动态路由
+  @del('delLabel/:id') // 动态路由
   async delLabelById (ctx) {
     const { id } = ctx.params
     try {
