@@ -6,9 +6,9 @@
           <div class="table_body">
             <table>
               <colgroup style="width: 322px;">
-                <col style="width: 550px; min-width: 550px;">
-                <col style="width: 200px; min-width: 200px;">
-                <col style="width: 300px; min-width: 300px;">
+                <col style="width: 450px; min-width: 450px;">
+                <col style="width: 150px; min-width: 150px;">
+                <col style="width: 450px; min-width: 450px;">
                 <col>
               </colgroup>
               <thead class="table_thead">
@@ -17,7 +17,7 @@
                     <span>标题</span>
                   </th>
                   <th>
-                    <span>日期</span>
+                    <span>创建日期</span>
                   </th>
                   <th>
                     <span>标签</span>
@@ -38,8 +38,7 @@
                   </td>
                   <td>
                     <span>
-                      <i style="padding-right: 15px;">xxx</i>
-                      <!-- <i style="padding-right: 15px;">JavaScript</i> -->
+                      <i v-for="(item1,index1) in item.labels" :key="index1" style="padding-right: 15px;">{{item1.name}}</i>
                     </span>
                   </td>
                   <td>

@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-import { Alert, Message, Loading, MessageBox, Input, Button, Menu, Submenu, MenuItem, MenuItemGroup, Form, FormItem } from 'element-ui' // 引入element-ui
+import { Alert, Message, Loading, MessageBox, Input, Button, Menu, Submenu, MenuItem, MenuItemGroup, Form, FormItem, Checkbox } from 'element-ui' // 引入element-ui
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
 import format_date from './mixins/format_date'
@@ -21,6 +21,7 @@ Vue.use(MenuItem)
 Vue.use(MenuItemGroup)
 Vue.use(Form)
 Vue.use(FormItem)
+Vue.use(Checkbox)
 Vue.use(mavonEditor)
 
 Vue.prototype.$loading = Loading.service

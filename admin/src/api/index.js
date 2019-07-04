@@ -38,3 +38,11 @@ export const addArticle = (param = {}) => axios.put(`${URL_PREFIX}article_overvi
 export const login = (param = {}) => axios.post(`${URL_PREFIX}users/login`, { ...param })
 
 export const delArticleById = (id) => axios.delete(`${URL_PREFIX}article_overview/del/${id}`)
+
+export const getLabels = () => axios.get(`${URL_PREFIX}label/getAllLabels`)
+
+export const updateLabelById = (id, param = {}) => axios.post(`${URL_PREFIX}label/updateLabel/${id}`, { ...param })
+
+export const delLabelById = (id) => axios.delete(`${URL_PREFIX}label/delLabel/${id}`)
+
+export const addLabel = (param = {}) => axios.put(`${URL_PREFIX}label/addLabel`, { ...param })

@@ -21,6 +21,14 @@
                 <el-menu-item index="editArticle">添加文章</el-menu-item>
               <!-- </el-menu-item-group> -->
             </el-submenu>
+            <el-submenu index="labelManage">
+              <template slot="title">
+                <i class="el-icon-menu"></i>
+                <span>标签管理</span>
+              </template>
+                <el-menu-item index="labelList">标签列表</el-menu-item>
+                <el-menu-item index="addLabel">添加标签</el-menu-item>
+            </el-submenu>
           </el-menu>
         </div>
       </div>

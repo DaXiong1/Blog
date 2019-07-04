@@ -23,7 +23,7 @@ export const getAllArticles = async (label) => {
 
 // 修改文章
 export const updateArticleById = async (id, opts) => {
-  const res = await ArticleOverview.findByIdAndUpdate(id, {$set: {title: opts.title, description: opts.description}})
+  const res = await ArticleOverview.findByIdAndUpdate(id, {$set: {title: opts.title, description: opts.description, labels: opts.labels}})
   return res
 }
 
