@@ -27,7 +27,10 @@ const articleOverviewSchema = new mongoose.Schema({
   comments: { type: Number, default: 0 },
 
   // 点赞人数
-  likes: { type: Number, default: 0 }
+  likes: { type: Number, default: 0 },
+
+  // 标签
+  labels: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Labels' }]
 })
 
 // 添加钩子，更新时间

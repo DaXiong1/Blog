@@ -10,16 +10,20 @@ export const putArticle = async (opts) => {
 }
 
 // 获取文章列表
-export const getAllArticles = async () => {
+export const getAllArticles = async (label) => {
   let article = null
   // 按时间倒序排列
-  article = await ArticleOverview.find().sort('-update_at')
+  if (label) {
+    article = await ArticleOverview.find({'labels': label}).populate('labels').sort('-update_at')
+  } else {
+    article = await ArticleOverview.find().populate('labels').sort('-update_at')
+  }
   return article
 }
 
 // 修改文章
 export const updateArticleById = async (id, opts) => {
-  const res = await ArticleOverview.findByIdAndUpdate(id, {$set: {title: opts.title, description: opts.description}})
+  const res = await ArticleOverview.findByIdAndUpdate(id, {$set: {title: opts.title, description: opts.description, labels: opts.labels}})
   return res
 }
 
