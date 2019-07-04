@@ -40,3 +40,7 @@ curl -v -X PUT -d "username=xxx&password=yyy" http://localhost:3008/api/users/re
 ![3](https://raw.githubusercontent.com/DaXiong1/koa-demo/master/img/1561623365791.jpg)
 ![4](https://raw.githubusercontent.com/DaXiong1/koa-demo/master/img/1561623423377.jpg)
 ![5](https://raw.githubusercontent.com/DaXiong1/koa-demo/master/img/1561623466094.jpg)
+
+### 版本更新
+V1.1
+增加标签管理功能。可通过标签筛选查询文章，文章与标签是多对多的关系
