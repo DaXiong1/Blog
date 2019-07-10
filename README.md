@@ -43,4 +43,5 @@ curl -v -X PUT -d "username=xxx&password=yyy" http://localhost:3008/api/users/re
 
 ### 版本更新记录
 V1.1
-增加标签管理功能。可通过标签筛选查询文章，文章与标签是多对多的关系
+- 增加标签管理功能。可通过标签筛选查询文章，文章与标签是多对多的关系
+- 为使URL中不出现'#'，vue-router的mode改为history
