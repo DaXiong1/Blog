@@ -17,7 +17,7 @@ axios.interceptors.response.use((response) => {
   if (data.code === -9999) { // 未登录
     window.sessionStorage.setItem('cur_url', location.href)
     setTimeout(() => {
-      location.href = (process.env.NODE_ENV === 'production' ? 'http://admin.daxiong1.cn' : 'http://127.0.0.1:8080') + '#/login'
+      location.href = (process.env.NODE_ENV === 'production' ? 'http://admin.daxiong1.cn' : 'http://127.0.0.1:8080') + '/login'
     }, 1500)
   }
   return data
