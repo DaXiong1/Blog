@@ -3,7 +3,7 @@
     <div class="layout layout_has_sider">
       <div class="layout_sider">
         <div class="layout_sider_child">
-          <div class="logo"><img src="http://pthq9vz1y.bkt.clouddn.com/logo.jpeg" alt=""></div>
+          <div class="logo"><img src="http://cdn.daxiong1.cn/logo.jpeg" alt=""></div>
           <el-menu
             default-active="articles"
             class="el-menu-vertical-demo"

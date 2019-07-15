@@ -106,8 +106,8 @@ export default {
   background-color: #626262!important;
 }
 /* .app_main::before {
-    background-image: url(http://pthq9vz1y.bkt.clouddn.com/main_bg.jpg);
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 900px, #FF0000 100%, #00FF00), url(http://pthq9vz1y.bkt.clouddn.com/main_bg.jpg);
+    background-image: url(http://cdn.daxiong1.cn/main_bg.jpg);
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 900px, #FF0000 100%, #00FF00), url(http://cdn.daxiong1.cn/main_bg.jpg);
     background-size: cover;
     background-size: 100% 100%;
 } */

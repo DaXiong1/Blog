@@ -14,7 +14,7 @@
                     </div>
                 </div>
                 <div class="aboutme">
-                    <img class="logo" src="http://pthq9vz1y.bkt.clouddn.com/logo.jpeg"/>
+                    <img class="logo" src="http://cdn.daxiong1.cn/logo.jpeg"/>
                     <p class="big">大熊弋<i style="margin: 0 10px 0 50px;" class="iconfont">&#xe615;</i>深圳</p>
                     <p class="big"><i class="iconfont">&#xe604;</i>毕业于吉林大学 信息工程</p>
                     <p class="big"><i class="iconfont">&#xe621;</i><a style="color: #e7fab8;" target="_brank" href="https://github.com/DaXiong1/Blog">https://github.com/DaXiong1/Blog</a></p>
@@ -43,7 +43,7 @@ export default {
 </script>
 <style slot-scope>
 .app_main::before {
-    background-image: url(http://pthq9vz1y.bkt.clouddn.com/main_bg.jpg);
+    background-image: url(http://cdn.daxiong1.cn/main_bg.jpg);
     background-size: cover;
 }
 .app_main_about::before {
