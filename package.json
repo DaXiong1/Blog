@@ -61,7 +61,7 @@
     "koa-router": "^7.4.0",
     "koa-static": "^5.0.0",
     "koa-views": "^5.2.1",
-    "mavon-editor": "^2.7.4",
+    "mavon-editor": "^2.8.2",
     "mongoose": "^5.5.11",
     "ramda": "^0.26.1",
     "vue": "^2.6.10",
